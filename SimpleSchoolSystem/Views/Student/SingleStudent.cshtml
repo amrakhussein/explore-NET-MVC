@@ -1,0 +1,29 @@
+﻿@using SimpleSchoolSystem.ViewModel;
+@model StudentDataWithCoursesVM;
+
+<section class="flex flex-col items-center p-2 mt-10 text-gray-900 font-bold">
+    <h2 class="">Name: <span class="font-semibold">@ViewBag.StudentName</span></h2>
+    <br />
+    <h2 class="">Courses:</h2>
+
+    <div class="flex flex-wrap mb-2 space-y-2">
+        @foreach (var course in ViewBag.CourseRelatedInfo)
+    {
+        <div class="inline-block px-3 py-2 mr-2 mb-2 bg-@(course.IsPassed ? "green-200" : "red-200") rounded-full">
+            <p class="text-sm font-semibold @(course.IsPassed ? "text-green-800" : "text-red-800")">@course.CourseName</p>
+            <p class="text-xs text-center font-semibold @(course.IsPassed ? "text-green-800" : "text-red-800")">@course.CourseGrade</p>
+        </div>
+    }
+    </div>
+
+    <h3 class="text-2xl">Average Score: </h3>
+    <p class="text-green-800">@ViewBag.StAverageDegree</p>
+    <hr />
+    <h3 class="text-2xl">Total Score: </h3>
+    <p class="text-green-800">@ViewBag.StTotalDegree</p>
+</section>
+
+
+
+
+

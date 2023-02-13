@@ -1,0 +1,104 @@
+﻿@using SimpleSchoolSystem.Controllers;
+@using SimpleSchoolSystem.ViewModel;
+
+@model List<InstructorModel>;
+
+@functions {
+        string[] colors = { "red-200", "blue-200", "green-200", "yellow-200", "orange-200" };
+    //public string GetRandomColor()
+    //{
+    //    Random rnd = new Random();
+    //    int index = rnd.Next(0, colors.Length);
+    //    foreach (var color in colors)
+    //    {
+            
+    //    }
+    //    return colors[index];
+    //}
+}
+
+
+@*
+@if (!Model.Any())
+{
+    <h2 class="3xl">No records found!</h2>
+}*@
+
+
+<main class="ml-4">
+
+    <h2 class="p-3 text-2xl">Current Instructors..</h2>
+    <h2 class="p-3 pt-5 text-3xl">Add new Instructor</h2>
+    <a class="ml-8 px-4 py-1 text-sm text-gray-900
+font-semibold rounded-full border border-green-200  hover:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2" href="@Url.Action(nameof(InstructorController.Create), "instructor")">Add New</a>
+
+    
+
+    <article class="flex flex-row flex-wrap gap-5">
+
+        
+
+        @foreach (var instructor in Model)
+        {
+            <section class="py-8 px-8 basis-96 max-w-sm mx-auto bg-white rounded-xl shadow-xl hover:shadow-2xl space-y-2 cursor-pointer">
+
+
+                <span class="bg-blue-200 flex items-center justify-center rounded-full h-24 w-24">
+                <span class="text-4xl font-medium">@instructor.Name.Substring(0, 1)</span>
+                </span>
+             
+
+                <hr class="border-2 border-gray-400 my-6" />
+            
+                <div class="pt-6 font-bold flex flex-col space-y-2">
+                    <h2 class="">Instructor: <span class="text-gray-800 font-medium">@instructor.Name</span></h2>
+                    <h3 class=""> Age: <span class="text-gray-800 font-medium">@instructor.Age</span></h3>
+
+                    <br />
+                    
+                    <p class="text-gray-800"></p>
+                    <a class="self-end items-end justify-self-end content-end px-4 py-1 text-sm text-gray-900 font-semibold rounded-full border border-red-200  hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2" href="@Url.Action(nameof(InstructorController.GetInstructorById), "instructor", new { id = instructor.Id })">View Profile</a>
+                    <a class="self-end items-end justify-self-end content-end px-4 py-1 text-sm text-green-900 font-semibold rounded-full border border-green-200  hover:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2" href="@Url.Action(nameof(InstructorController.Edit), "instructor", new { id = instructor.Id })">Edit Profile</a>
+                    @*<a class="self-end items-end justify-self-end content-end px-4 py-1 text-sm text-red-900 font-semibold rounded-full border border-red-200  hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2" href="@Url.Action(nameof(InstructorController.Delete), "instructor", new { id = instructor.Id })">Delete Profile</a>*@
+                    @*<a asp-controller="instructor" asp-action="Delete" asp-route-id="@instructor.Id" class="self-end items-end justify-self-end content-end px-4 py-1 text-sm text-red-900 font-semibold rounded-full border border-red-200  hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2" >Delete</a>*@
+                    <form onclick="return confirm('Are you sure??');" method="post" asp-controller="instructor" asp-action="Delete" asp-route-id="@instructor.Id">
+                        <input  type="submit" value="Delete" class="self-end items-end justify-self-end content-end px-4 py-1 text-sm text-red-900 font-semibold rounded-full border border-red-200  hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2" />
+                        @Html.AntiForgeryToken()
+                    </form>
+
+                </div>
+          
+            </section>
+        }
+
+
+     @*   @for (var i=0; i < Model.Count; i++)
+        {
+            var instructor = Model[i];
+            <section class="py-8 px-8 basis-96 max-w-sm mx-auto bg-white rounded-xl shadow-xl hover:shadow-2xl space-y-2 cursor-pointer">
+
+
+                <span class="bg-@colors[i] flex items-center justify-center rounded-full h-24 w-24">
+                    <span class="text-4xl font-medium">@instructor.Name.Substring(0, 1)</span>
+                </span>
+
+
+                <hr class="border-2 border-gray-400 my-6" />
+
+                <div class="pt-6 font-bold flex flex-col space-y-2">
+                    <h2 class="">Instructor: <span class="text-gray-800 font-medium">@instructor.Name</span></h2>
+                    <h3 class=""> Age: <span class="text-gray-800 font-medium">@instructor.Age</span></h3>
+
+                    <br />
+
+                    <p class="text-gray-800"></p>
+                    <a class="self-end items-end justify-self-end content-end px-4 py-1 text-sm text-gray-900 font-semibold rounded-full border border-red-200  hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2" href="@Url.Action(nameof(InstructorController.GetInstructorById), "instructor", new { id = instructor.Id })">View Profile</a>
+                    <a class="self-end items-end justify-self-end content-end px-4 py-1 text-sm text-red-900 font-semibold rounded-full border border-red-200  hover:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2" href="@Url.Action(nameof(InstructorController.Edit), "instructor", new { id = instructor.Id })">Edit Profile</a>
+                </div>
+
+            </section>
+        }*@
+
+    </article>
+
+</main>

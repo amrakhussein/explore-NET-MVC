@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SimpleSchoolSystem</title>
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/SimpleSchoolSystem.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="p-4 py-8 border-gray-200 rounded bg-red-200">
+        <nav class="">
+              <div class="flex flex-wrap items-center justify-between">
+            <a class="text-4xl text-center" asp-area="" asp-controller="Home" asp-action="Index">School System</a>
+
+                    <ul class="flex flex-row">
+                        <li class="px-3 py-2 text-xl text-gray-700 hover:text-gray-900">
+                            <a class="" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                    <li class="px-3 py-2 text-xl text-gray-700 hover:text-gray-900">
+                            <a class="" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    <li class="px-3 py-2 text-xl text-gray-700 hover:text-gray-900">
+                            <a class="" asp-area="" asp-controller="Instructor" asp-action="GetAllInstructors">Instructors</a>
+                        </li>
+                <li class="px-3 py-2 text-xl text-gray-700 hover:text-gray-900">
+                    <a class="" asp-area="" asp-controller="Student" asp-action="GetAllStudents">Students</a>
+                </li>
+                    </ul>
+                </ul>
+            
+              </div>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
