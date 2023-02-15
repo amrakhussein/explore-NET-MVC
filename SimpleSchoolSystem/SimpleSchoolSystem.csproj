@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <LastInstalledNpm>node_modules/.last-install</LastInstalledNpm>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,13 +15,22 @@
     </PackageReference>
   </ItemGroup>
 
-	<ItemGroup>
-		<UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
-		<UpToDateCheckBuilt Include="tailwind.config.js" Set="Css" />
-	</ItemGroup>
-
-	<Target Name="Tailwind" BeforeTargets="Build">
-		<Exec Command="npm run css:build" />
+	<Target Name="IsNpmInstalled" BeforeTargets="Install">
+		<Exec Command="npm -v" ContinueOnError="true">
+			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+		</Exec>
+		<Error Condition="'$(ErrorCode)' != '0'" Text="Npm must be installed" />
+	</Target>
+	
+	<Target Name="InstallNpm" BeforeTargets="BuildTailwindCSS">
+		<Exec Command="npm install" />
+		<Touch Files="$(LastInstalledNpm)" AlwaysCreate="true" />
 	</Target>
 
+	<Target Name="BuildTailwindCSS" BeforeTargets="Compile">
+		<Exec Command="npm run css:debug" Condition="'$(Configuration)' == 'Debug'" />
+		<Exec Command="npm run css:release" Condition="'$(Configuration)' == 'Release'" />
+	</Target>
+
+	
 </Project>
