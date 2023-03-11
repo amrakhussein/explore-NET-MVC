@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SimpleSchoolSystem</title>
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
-
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/SimpleSchoolSystem.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -18,9 +18,7 @@
                         <li class="px-3 py-2 text-xl text-gray-700 hover:text-gray-900">
                             <a class="" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                    <li class="px-3 py-2 text-xl text-gray-700 hover:text-gray-900">
-                            <a class="" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                  
                     <li class="px-3 py-2 text-xl text-gray-700 hover:text-gray-900">
                             <a class="" asp-area="" asp-controller="Instructor" asp-action="GetAllInstructors">Instructors</a>
                         </li>
@@ -29,6 +27,8 @@
                 </li>
                     </ul>
                 </ul>
+
+                <partial name="_loginPartial" />
             
               </div>
         </nav>
@@ -42,6 +42,8 @@
     </div>
 
 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -8,5 +8,5 @@ public class TraineeModel
 
     public int DepartmentId { get; set; }
     public DepartmentModel Department { get; set; } = null!;
-    public List<CrsResultModel> CrsResults { get; set; } = null!;
+    public List<CourseResultModel> CourseResults { get; set; } = null!;
 }

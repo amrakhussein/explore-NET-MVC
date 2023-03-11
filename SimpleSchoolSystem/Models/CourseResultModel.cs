@@ -1,13 +1,10 @@
 ﻿namespace SimpleSchoolSystem.Models;
 
-public class CrsResultModel
+public class CourseResultModel
 {
     public int Id { get; set; }
 
-    // final grade
-    public int Degree { get; set; }
-
-
+    public int Grade { get; set; }
 
     public int CourseId { get; set; }
     public CourseModel Course { get; set; } = null!;
