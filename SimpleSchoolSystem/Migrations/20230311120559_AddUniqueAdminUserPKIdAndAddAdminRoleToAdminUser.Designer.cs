@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpleSchoolSystem.Data;
 
@@ -11,9 +12,11 @@ using SimpleSchoolSystem.Data;
 namespace SimpleSchoolSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230311120559_AddUniqueAdminUserPKIdAndAddAdminRoleToAdminUser")]
+    partial class AddUniqueAdminUserPKIdAndAddAdminRoleToAdminUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,31 +54,17 @@ namespace SimpleSchoolSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "529ef8bd-16bf-49ec-a06c-bf290558fe0b",
-                            ConcurrencyStamp = "53e09617-8b83-41b7-b8c5-d1a05fa46ce3",
+                            Id = "010c8528-0aa3-43f5-bd64-4982a3769f69",
+                            ConcurrencyStamp = "266c13a3-4da3-47b5-80b9-b99f3be2090c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "4b78e20a-b25b-4a28-b23a-fee161821c0c",
-                            ConcurrencyStamp = "36cfc3ea-b873-4eb8-bcb7-825361483076",
-                            Name = "Standard",
-                            NormalizedName = "STANDARD"
-                        },
-                        new
-                        {
-                            Id = "74c53fbc-0f8e-418e-af9b-64e140262cbe",
-                            ConcurrencyStamp = "3ae74847-7f21-4b4e-a5d9-38b44088d6b4",
+                            Id = "1e074021-9470-4fc1-98be-f3fcb43d9057",
+                            ConcurrencyStamp = "eaac56d9-b3ff-4607-81dd-6354aa60338f",
                             Name = "User",
                             NormalizedName = "USER"
-                        },
-                        new
-                        {
-                            Id = "3659b9e5-2e16-4f20-98f6-5ca59e321ea1",
-                            ConcurrencyStamp = "d9f46cea-1391-4ab1-bbc6-e83640525d9d",
-                            Name = "Guest",
-                            NormalizedName = "GUEST"
                         });
                 });
 
@@ -168,13 +157,13 @@ namespace SimpleSchoolSystem.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "f8398afe-d4c1-4991-9776-23bd2fa79f75",
-                            RoleId = "74c53fbc-0f8e-418e-af9b-64e140262cbe"
+                            UserId = "b519c581-3d49-4a2d-aca0-027f66cee10e",
+                            RoleId = "1e074021-9470-4fc1-98be-f3fcb43d9057"
                         },
                         new
                         {
-                            UserId = "082cc7bc-a4ba-46f5-8fb4-14f54c9fc9b4",
-                            RoleId = "529ef8bd-16bf-49ec-a06c-bf290558fe0b"
+                            UserId = "373b7978-efd9-4264-acd2-124e3526c906",
+                            RoleId = "010c8528-0aa3-43f5-bd64-4982a3769f69"
                         });
                 });
 
@@ -274,35 +263,35 @@ namespace SimpleSchoolSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f8398afe-d4c1-4991-9776-23bd2fa79f75",
+                            Id = "b519c581-3d49-4a2d-aca0-027f66cee10e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bbd27433-b52c-44f6-8274-2a62421448ea",
+                            ConcurrencyStamp = "7127e527-8f31-4d40-811c-8aec81be884d",
                             Email = "hello@host.com",
                             EmailConfirmed = false,
                             FirstName = "Jhon",
                             LastName = "Smith",
                             LockoutEnabled = false,
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDyKzCBJNhJp9B6x1KxaHpA+WLlFaPbNq3NFW8Ai8BoSHtdA3EOueRza9euogyR+Xg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBxyyNP1cIxo7/2jCnunaJl7Jx1qSOSumvZLPKGtT8RyEmAmjdvbkajSauasS5jFBg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cb275b5b-f4e8-4dfa-8eda-0133bbbce80b",
+                            SecurityStamp = "5316840e-febd-4cba-b264-5e5e5e3380f2",
                             TwoFactorEnabled = false,
                             UserName = "User"
                         },
                         new
                         {
-                            Id = "082cc7bc-a4ba-46f5-8fb4-14f54c9fc9b4",
+                            Id = "373b7978-efd9-4264-acd2-124e3526c906",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "50948f9b-e9bc-46a3-bf19-4bfeb22e2970",
+                            ConcurrencyStamp = "e9d5627f-1c38-40a6-950c-38851d575283",
                             Email = "admin@host.com",
                             EmailConfirmed = false,
                             FirstName = "Amr",
                             LastName = "Abdelkamel",
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAECxtfmjuxwP/0CnxfXSJynAUC2dYuwN5F0CaQ+u/l9dFp96Q9rnwBY7CYCHFovTdCA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFSqBn9xTlLRu+Um1xnXY7kmUb5nAmwwyaGbL9nDkX7rWHlZuQE0ThGcNzkIVb6QJQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2c0e862b-004d-4aff-bbb3-6a469ae28f07",
+                            SecurityStamp = "dbc75f6d-3048-41bc-8008-22a400724fd2",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });

@@ -20,7 +20,9 @@ namespace SimpleSchoolSystem
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
              options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-             .LogTo(log => Debug.WriteLine(log)));
+                        // for testing purposes
+                        .EnableSensitiveDataLogging()
+                        .LogTo(log => Debug.WriteLine(log)));
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
