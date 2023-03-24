@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpleSchoolSystem.Data;
 
@@ -11,9 +12,11 @@ using SimpleSchoolSystem.Data;
 namespace SimpleSchoolSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230324150919_CourseCanHaveManyInstructors")]
+    partial class CourseCanHaveManyInstructors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,29 +54,29 @@ namespace SimpleSchoolSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c99533ae-8e0e-4822-8556-e512640dfaac",
-                            ConcurrencyStamp = "ff0d3096-4983-4a0a-b8d6-e99fa53f9495",
+                            Id = "c26a0919-baed-4d4f-9e1a-916bc925028f",
+                            ConcurrencyStamp = "6df15cfa-446b-41ce-811c-27c43e0fb35d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "0ceeb5ca-3e9a-4b31-be8a-4dab48853b22",
-                            ConcurrencyStamp = "de6c8f2f-8593-41f2-9fec-770dd3e17914",
+                            Id = "f7950f89-5796-4dc7-82c8-515823f79923",
+                            ConcurrencyStamp = "05dda19b-d441-4e66-9975-403d52221f83",
                             Name = "Standard",
                             NormalizedName = "STANDARD"
                         },
                         new
                         {
-                            Id = "0b8775c5-d3d7-46d4-9d98-6d6350fe403b",
-                            ConcurrencyStamp = "91fc5cfe-cdcf-44f4-9db3-bcbdb2bd501d",
+                            Id = "83d5f6b1-39f0-4821-bd09-b7be26cae57d",
+                            ConcurrencyStamp = "392f9d2a-c69a-46c3-8262-43a453996f94",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "b702db53-82e0-4e0c-bb34-27705c9c3839",
-                            ConcurrencyStamp = "b82d6569-db3b-45ee-832a-da028d7e8e11",
+                            Id = "a3b92575-1cd4-4fcc-8a0f-8d277c770288",
+                            ConcurrencyStamp = "2848a480-3ac7-4856-8e49-638797132bfc",
                             Name = "Guest",
                             NormalizedName = "GUEST"
                         });
@@ -168,13 +171,13 @@ namespace SimpleSchoolSystem.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "5340b7f3-2044-44e6-b373-4dddeb2ad102",
-                            RoleId = "0b8775c5-d3d7-46d4-9d98-6d6350fe403b"
+                            UserId = "742fdf5c-7a81-45e5-a1aa-7d0b31e43362",
+                            RoleId = "83d5f6b1-39f0-4821-bd09-b7be26cae57d"
                         },
                         new
                         {
-                            UserId = "a361c0df-89a1-4cdc-8af8-4a5adaa6fae8",
-                            RoleId = "c99533ae-8e0e-4822-8556-e512640dfaac"
+                            UserId = "8106f1cb-5842-4984-9929-c6bd4fd6e991",
+                            RoleId = "c26a0919-baed-4d4f-9e1a-916bc925028f"
                         });
                 });
 
@@ -274,35 +277,35 @@ namespace SimpleSchoolSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5340b7f3-2044-44e6-b373-4dddeb2ad102",
+                            Id = "742fdf5c-7a81-45e5-a1aa-7d0b31e43362",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "647210c8-ae9e-4ad8-8956-7ce62b7f937d",
+                            ConcurrencyStamp = "3817b535-8346-4c38-97f0-66c90c4e3a6f",
                             Email = "hello@host.com",
                             EmailConfirmed = false,
                             FirstName = "Jhon",
                             LastName = "Smith",
                             LockoutEnabled = false,
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEL/hnVGUMlAXNJ4wpDidp7FhF7arviyWsiTZRodUQ+Wxw4ko0IlW7DuU7lSqgkxZ5w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEN+NSnEn90GJDZG3iFbprc1VJ2wP4no6PI1zJy3OpxhT3c1vuMa8enIT6DEFSbDG4Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0ad65d50-c65e-4a4d-9fb3-272727a06220",
+                            SecurityStamp = "0df370df-0ccd-4d09-9bf9-96255f472fef",
                             TwoFactorEnabled = false,
                             UserName = "User"
                         },
                         new
                         {
-                            Id = "a361c0df-89a1-4cdc-8af8-4a5adaa6fae8",
+                            Id = "8106f1cb-5842-4984-9929-c6bd4fd6e991",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2316fd13-a2ec-4020-b2e2-989f36328a2a",
+                            ConcurrencyStamp = "3500ca87-7e8c-46e9-bfb7-370add01171b",
                             Email = "admin@host.com",
                             EmailConfirmed = false,
                             FirstName = "Amr",
                             LastName = "Abdelkamel",
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAECFWepXgvQ1kWWHDug6qimFyh0VnugrWPp/OovegxzN63tQfGX0NDDjPWELM4HGKtA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEL9IxLqL/GzIVGQTm6yZYAxInmRFGhij8hvi72IwzGtXQ9a+BIxipYRDZqIck+L/NA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a0fbd3ee-659a-4938-96dc-900fb1c0f159",
+                            SecurityStamp = "a6ee2c0e-c238-4cf6-ab99-7879ad60b3aa",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -392,32 +395,6 @@ namespace SimpleSchoolSystem.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Departments");
-                });
-
-            modelBuilder.Entity("SimpleSchoolSystem.Models.Enrollment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("HasEnrolled")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("TraineeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("TraineeId");
-
-                    b.ToTable("Enrollment");
                 });
 
             modelBuilder.Entity("SimpleSchoolSystem.Models.Instructor", b =>
@@ -570,25 +547,6 @@ namespace SimpleSchoolSystem.Migrations
                     b.Navigation("Trainee");
                 });
 
-            modelBuilder.Entity("SimpleSchoolSystem.Models.Enrollment", b =>
-                {
-                    b.HasOne("SimpleSchoolSystem.Models.Course", "Course")
-                        .WithMany("Enrollments")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SimpleSchoolSystem.Models.Trainee", "Trainee")
-                        .WithMany("Enrollments")
-                        .HasForeignKey("TraineeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Course");
-
-                    b.Navigation("Trainee");
-                });
-
             modelBuilder.Entity("SimpleSchoolSystem.Models.Instructor", b =>
                 {
                     b.HasOne("SimpleSchoolSystem.Models.Department", "Department")
@@ -616,8 +574,6 @@ namespace SimpleSchoolSystem.Migrations
                     b.Navigation("CourseInstructors");
 
                     b.Navigation("CourseResults");
-
-                    b.Navigation("Enrollments");
                 });
 
             modelBuilder.Entity("SimpleSchoolSystem.Models.Department", b =>
@@ -637,8 +593,6 @@ namespace SimpleSchoolSystem.Migrations
             modelBuilder.Entity("SimpleSchoolSystem.Models.Trainee", b =>
                 {
                     b.Navigation("CourseResults");
-
-                    b.Navigation("Enrollments");
                 });
 #pragma warning restore 612, 618
         }
